@@ -71,15 +71,21 @@ public final class HttpUtils {
 //        httpCustom(httpInterface, httpUrl, new Request.Builder(), new LoadingDialog(httpInterface.getActivity())/*此处创建一个默认的dialog*/, mClass, mClient, listener);
 //    }
 
-    //postCustom
+    //postDefault
     public static <T extends BaseBean> void postDefault(HttpInterface httpInterface, String httpUrl, MapUtils mapUtils,
                                                         Class<T> mClass, @NonNull OKHttpListener<T> listener) {
+        if (mapUtils.get(KEY_USERID) == null) {
+            mapUtils.put(KEY_USERID, "用户id");
+        }
         postCustom(httpInterface, httpUrl, RequestBody.create(mMediaType, mapUtils.toString()), null, mClass, listener);
     }
 
     //dialog
 //    public static <T extends BaseBean> void postDialog(HttpInterface httpInterface, String httpUrl, MapUtils mapUtils,
 //                                                       Class<T> mClass, @NonNull OKHttpListener<T> listener) {
+//        if (mapUtils.get(KEY_USERID) == null) {
+//            mapUtils.put(KEY_USERID, "用户id");
+//        }
 //        postCustom(httpInterface, httpUrl, RequestBody.create(mMediaType, mapUtils.toString()),
 //                new LoadingDialog(httpInterface.getActivity())/*此处创建一个默认的dialog*/, mClass, listener);
 //    }
