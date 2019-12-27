@@ -10,14 +10,23 @@
                 });
 ```
 也许你不敢相信上面几行代码已经做了：
+
 1.添加默认header：userId
+
 2.追加默认body：token
+
 3.不弹出加载中的对话框（也可以自定义选择弹出）
+
 4.回调结果就是ui线程，不需要切换线程
+
 5.网络问题会回调OKHttpListener的onNetworkError
+
 6.已经帮您解析成指定的bean了
+
 7.服务器返回失败状态会回调OKHttpListener的onServiceError
+
 8.Activity finish时默认不做任何回调（当然也可以修改让它回调）
+
 9.当然还有onNext等等，思路给你任你自定义
 
 ## 对于一个失败的封装，要想做到上面的效果，只能这样
